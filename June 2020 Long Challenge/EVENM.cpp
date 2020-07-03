@@ -19,7 +19,7 @@ int main() {
             }
         }
         else {
-            int x = 1;
+            int     x = 1;
             int z = 0;
             for(int i = 0; i < n; i++) {
                 

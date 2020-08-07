@@ -15,18 +15,39 @@ int main() {
             cin >> countries[i];
         }
         int count = 0;
+        int pop = 0;
         sort(countries.begin(), countries.end());
-        while(true) {
-            if (countries.empty()) {
-                break;
+
+        for(int i = 0; i < n; i++) {
+            pop = countries[i];
+            if(countries[i] <= x) {
+                cout << endl << "ENTERED IF: " << endl;
+                count++;
+                cout << "COUNT: " << count << " x: " << x << " infected: " << countries[i] << " pop: " << pop << endl;
+                x = countries[i] * 2;
+                continue;
             }
-            if(x >= countries.front()) {
-                countries.erase(countries.begin());
+            else {
+                cout << endl << "ENTERED ELSE: " << endl;
+                cout << "COUNT: " << count << " x: " << x <<  " infected: " << countries[i] << " pop: " << pop << endl;
+                int z = 1;
+                //count++;
+                while(countries[i] > x) {
+                    cout << endl <<  z << "th iteration" << endl;
+                    count++;
+                    cout << "\tCOUNT: " << count << " x: " << x << " infected: " << countries[i] << " pop: " << pop << endl;
+                    int rem = pop - x;
+                    countries[i] = min(rem*2, pop);
+                    x = x * 2;
+                    //count++;
+                    //cout << "\tCOUNT: " << count << " x: " << x << " infected: " << countries[i] << " pop: " << pop << endl;
+                    z++;
+
+                }
+                
             }
-            x = (long long) x * 2;
-            count++;
         }
-        cout << count;
+        cout << count << endl;
 
 
     }

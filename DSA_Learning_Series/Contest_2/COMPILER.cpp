@@ -1,4 +1,4 @@
-#include <bits/stdc++.h>
+#include "bits/stdc++.h"
 #define endl "\n"
 #define rapid ios_base:: sync_with_stdio(false);cin.tie(NULL);cout.tie(NULL);
 #define ll long long
@@ -6,7 +6,7 @@ using namespace std;
 
 void solve(string bracks) {
     stack <char> st;
-    int count = 0;
+    ll count = 0;
     for(char x: bracks) {
         if(x == '<') {
             st.push(x);
@@ -15,9 +15,11 @@ void solve(string bracks) {
             if(!st.empty()) {
                 count += 2;
                 st.pop();
-            }
+            } 
         }
     }
+    
+    
     cout << count << endl;
 }
 
